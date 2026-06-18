@@ -67,7 +67,7 @@ img{max-width:100%}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(251,252,254,.82);backdrop-filter:blur(22px) saturate(1.4);border-bottom:1px solid rgba(222,230,245,.6);transition:all .3s}
 .ni{max-width:1180px;margin:0 auto;padding:0 28px;height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:11px}
-.logo-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(145deg,var(--sapphire),var(--sky));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(11,42,94,.25)}
+.logo-img{height:48px;width:auto;display:block;flex-shrink:0}
 .logo-text{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:var(--ink);letter-spacing:-.01em;line-height:1.15}
 .logo-text small{display:block;font-family:var(--fb);font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:1px}
 .nl{display:flex;gap:34px;list-style:none}
@@ -83,8 +83,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(251,252,254,
 
 /* HERO */
 .hero{min-height:100vh;padding-top:78px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(165deg,#0A1F45 0%,#0B2A5E 38%,#1A4FA8 78%,#2D6FE0 130%)}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.32;mix-blend-mode:luminosity}
-.hero-noise{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 15%,rgba(91,143,239,.35),transparent 60%),radial-gradient(ellipse 50% 50% at 10% 90%,rgba(199,167,90,.10),transparent 60%);z-index:1}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.78}
+.hero-noise{position:absolute;inset:0;background:linear-gradient(165deg,rgba(10,31,69,.78) 0%,rgba(11,42,94,.6) 35%,rgba(26,79,168,.42) 70%,rgba(45,111,224,.3) 130%);z-index:1}
 .hero-content{position:relative;z-index:2;max-width:760px}
 .htag{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-full);padding:8px 18px 8px 14px;margin-bottom:30px;backdrop-filter:blur(10px)}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pu 2.2s ease-in-out infinite;flex-shrink:0}
@@ -204,7 +204,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(251,252,254,
 .ostep-desc{font-size:12.5px;color:var(--muted);line-height:1.55;padding:0 6px}
 
 /* GALLERY */
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .gallery-item{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--ice2);box-shadow:var(--sh-sm)}
 .gallery-item img,.gallery-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
 .gallery-item:hover img,.gallery-item:hover video{transform:scale(1.06)}
@@ -331,6 +331,7 @@ footer{background:var(--ink);padding:56px 0 30px}
   .partner-banner{grid-template-columns:1fr;text-align:center}
   .pb-actions{flex-direction:row;justify-content:center}
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .ey{flex-wrap:wrap}
   .bw{color:var(--sapphire);border-color:var(--sapphire);background:transparent}
   .hero{min-height:auto;padding-top:90px;padding-bottom:56px}
   .hero-video{display:none}
@@ -357,9 +358,7 @@ footer{background:var(--ink);padding:56px 0 30px}
 <nav>
   <div class="ni">
     <a href="/" class="logo">
-      <div class="logo-mark">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4-3 7-6.5 7-10.5A7 7 0 005 10.5C5 14.5 8 18 12 21z"/></svg>
-      </div>
+      <img src="логотип.png" alt="Зарина Яхина" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-text">Зарина Яхина<small>Клининг премиум-класса</small></div>
     </a>
     <ul class="nl" id="menu">
@@ -682,25 +681,55 @@ footer{background:var(--ink);padding:56px 0 30px}
 <!-- ГАЛЕРЕЯ -->
 <section class="sec s-white">
   <div class="wrap">
-    <div class="sh center fade"><div class="ey">Наши работы</div><h2>Фото и видео наших проектов</h2></div>
+    <div class="sh center fade"><div class="ey">Наши работы</div><h2>Фото и видео наших проектов</h2><p style="margin-top:12px">Реальные результаты — до и после нашей уборки</p></div>
+
+    <div class="ey" style="margin-top:8px">Фото «до / после»</div>
+    <div class="gallery-grid fade" style="margin-bottom:14px">
+      <div class="gallery-item">
+        <img src="фото1.jpg" alt="Работа клининга — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото2.jpg" alt="Уборка квартиры — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото3.jpg" alt="Химчистка мебели — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото4.jpg" alt="Уборка после ремонта — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото5.jpg" alt="Химчистка ванной — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото6.jpg" alt="Мойка сантехники — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото7.jpg" alt="Генеральная уборка — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+      <div class="gallery-item">
+        <img src="фото8.jpg" alt="Клининг офиса — до и после" loading="lazy" onerror="this.parentElement.style.background='var(--ice2)'">
+      </div>
+    </div>
+
+    <div class="ey" style="margin-top:36px">Видео процесса уборки</div>
     <div class="gallery-grid fade">
       <div class="gallery-item">
-        <img src="https://lunaproemss.github.io/Zarina/фото1.jpg" alt="Работа клининга" loading="lazy">
+        <video src="видео1.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--ice2)'"></video>
       </div>
       <div class="gallery-item">
-        <img src="https://lunaproemss.github.io/Zarina/фото2.jpg" alt="Уборка квартиры" loading="lazy">
+        <video src="видео2.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--ice2)'"></video>
       </div>
       <div class="gallery-item">
-        <img src="https://lunaproemss.github.io/Zarina/фото3.jpg" alt="Профессиональная уборка" loading="lazy">
+        <video src="видео3.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--ice2)'"></video>
       </div>
       <div class="gallery-item">
-        <img src="https://lunaproemss.github.io/Zarina/фото4.jpg" alt="Клининг офисов" loading="lazy">
+        <video src="видео4.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--ice2)'"></video>
       </div>
       <div class="gallery-item">
-        <img src="https://lunaproemss.github.io/Zarina/фото5.jpg" alt="Результат уборки" loading="lazy">
+        <video src="видео5.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--ice2)'"></video>
       </div>
       <div class="gallery-item">
-        <video src="https://lunaproemss.github.io/Zarina/review1.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover"></video>
+        <video src="видео6.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='var(--ice2)'"></video>
       </div>
     </div>
   </div>
