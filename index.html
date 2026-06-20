@@ -83,8 +83,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(251,252,254,
 
 /* HERO */
 .hero{min-height:100vh;padding-top:78px;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(165deg,#0A1F45 0%,#0B2A5E 38%,#1A4FA8 78%,#2D6FE0 130%)}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:.78}
-.hero-noise{position:absolute;inset:0;background:linear-gradient(165deg,rgba(10,31,69,.78) 0%,rgba(11,42,94,.6) 35%,rgba(26,79,168,.42) 70%,rgba(45,111,224,.3) 130%);z-index:1}
+.hero-scene{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-noise{position:absolute;inset:0;background:linear-gradient(165deg,rgba(10,31,69,.55) 0%,rgba(11,42,94,.35) 40%,rgba(26,79,168,.18) 75%,rgba(45,111,224,.08) 130%);z-index:1}
+.hero-rings{position:absolute;top:-60px;right:-120px;width:760px;height:760px;z-index:1;opacity:.8}
+.orb{position:absolute;border-radius:50%;filter:blur(1px)}
+.orb1{width:340px;height:340px;top:8%;right:6%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.5),rgba(91,143,239,.35) 38%,rgba(11,42,94,.15) 72%,transparent 100%);box-shadow:inset -20px -24px 50px rgba(11,42,94,.35),inset 14px 14px 30px rgba(255,255,255,.25),0 30px 70px rgba(8,20,48,.4);animation:orbfloat1 13s ease-in-out infinite}
+.orb2{width:170px;height:170px;top:46%;right:26%;background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.6),rgba(199,167,90,.4) 40%,rgba(11,42,94,.1) 75%,transparent 100%);box-shadow:inset -14px -16px 30px rgba(11,42,94,.3),inset 10px 10px 22px rgba(255,255,255,.3),0 20px 46px rgba(8,20,48,.35);animation:orbfloat2 10s ease-in-out infinite}
+.orb3{width:120px;height:120px;top:14%;right:34%;background:radial-gradient(circle at 32% 28%,rgba(255,255,255,.55),rgba(91,143,239,.4) 42%,transparent 100%);box-shadow:inset -10px -12px 22px rgba(11,42,94,.3),0 16px 34px rgba(8,20,48,.3);animation:orbfloat3 9s ease-in-out infinite}
+.orb4{width:90px;height:90px;top:64%;right:10%;background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.5),rgba(199,167,90,.3) 45%,transparent 100%);box-shadow:inset -8px -10px 18px rgba(11,42,94,.28),0 14px 28px rgba(8,20,48,.3);animation:orbfloat4 11s ease-in-out infinite}
+@keyframes orbfloat1{0%,100%{transform:translate(0,0)}50%{transform:translate(-16px,18px)}}
+@keyframes orbfloat2{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,-14px)}}
+@keyframes orbfloat3{0%,100%{transform:translate(0,0)}50%{transform:translate(-10px,-12px)}}
+@keyframes orbfloat4{0%,100%{transform:translate(0,0)}50%{transform:translate(12px,10px)}}
+.sparkle{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 8px 2px rgba(255,255,255,.7);animation:twinkle 4s ease-in-out infinite}
+.s1{top:18%;right:14%;animation-delay:0s}
+.s2{top:38%;right:42%;animation-delay:.8s}
+.s3{top:58%;right:18%;animation-delay:1.6s}
+.s4{top:30%;right:8%;animation-delay:2.3s}
+.s5{top:72%;right:30%;animation-delay:3.1s}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
 .hero-content{position:relative;z-index:2;max-width:760px}
 .htag{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:var(--r-full);padding:8px 18px 8px 14px;margin-bottom:30px;backdrop-filter:blur(10px)}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pu 2.2s ease-in-out infinite;flex-shrink:0}
@@ -206,8 +223,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(251,252,254,
 /* GALLERY */
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .gallery-item{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:var(--ice2);box-shadow:var(--sh-sm)}
-.gallery-item.tall{aspect-ratio:9/16}
-.gallery-item.tall img{object-fit:contain;background:var(--ice2)}
+.gallery-item.tall{aspect-ratio:auto;height:auto;display:flex;align-items:center}
+.gallery-item.tall img{width:100%;height:auto;object-fit:cover;display:block}
 .gallery-item img,.gallery-item video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
 .gallery-item:hover img,.gallery-item:hover video{transform:scale(1.06)}
 
@@ -337,17 +354,19 @@ footer{background:var(--ink);padding:56px 0 30px}
   .ey{flex-wrap:wrap}
   .bw{color:var(--sapphire);border-color:var(--sapphire);background:transparent}
   .hero{min-height:auto;padding-top:90px;padding-bottom:56px}
-  .hero-video{display:none}
+  .hero-rings{width:480px;height:480px;top:-40px;right:-160px;opacity:.5}
+  .orb1{width:200px;height:200px;right:-30px}
+  .orb2{width:110px;height:110px;right:8%}
+  .orb3{display:none}
+  .orb4{right:-10px}
   .scroll-hint{display:none}
   .hero h1{font-size:2.1rem}
   .hstats{max-width:100%;grid-template-columns:repeat(2,1fr)}
-  .hero-mobile-video{display:block;width:100%;margin:22px 0 26px;border-radius:18px;overflow:hidden;box-shadow:var(--sh-lg)}
   .fw2{padding:30px 22px}
   .calc-body,.calc-head{padding:26px 22px}
   .partner-banner{padding:34px 26px}
 }
 @media(min-width:861px){
-  .hero-mobile-video{display:none}
   #mobile-menu{display:none !important}
   .burger{display:none}
 }
@@ -392,7 +411,22 @@ footer{background:var(--ink);padding:56px 0 30px}
 
 <!-- HERO -->
 <section class="hero">
-  <video class="hero-video" src="https://lunaproemss.github.io/Zarina/hero.MOV" autoplay muted loop playsinline></video>
+  <div class="hero-scene">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    <div class="orb orb4"></div>
+    <svg class="hero-rings" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="600" cy="280" r="220" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+      <circle cx="600" cy="280" r="160" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+      <circle cx="620" cy="560" r="120" fill="none" stroke="rgba(199,167,90,.16)" stroke-width="1"/>
+    </svg>
+    <div class="sparkle s1"></div>
+    <div class="sparkle s2"></div>
+    <div class="sparkle s3"></div>
+    <div class="sparkle s4"></div>
+    <div class="sparkle s5"></div>
+  </div>
   <div class="hero-noise"></div>
   <div class="wrap" style="position:relative;z-index:2;width:100%">
     <div class="hero-content">
@@ -400,9 +434,6 @@ footer{background:var(--ink);padding:56px 0 30px}
       <h1 class="fade" data-d="1">Безупречная чистота, <span class="ac">которую чувствуешь</span></h1>
       <p class="hsub fade" data-d="2">Премиальный клининг квартир, коттеджей и офисов в Казани — за 3 часа, с гарантией результата</p>
       <p class="hdesc fade" data-d="2">Работаем во всех районах Казани и пригороде. Фиксированная цена, оплата после уборки. Ваш чистый дом — наша главная задача.</p>
-      <div class="hero-mobile-video">
-        <video src="https://lunaproemss.github.io/Zarina/hero.MOV" style="width:100%;display:block;" autoplay muted loop playsinline></video>
-      </div>
       <div class="hctas fade" data-d="3">
         <a href="#calculator" class="btn bp">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
